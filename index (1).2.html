@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio JavaScript</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fce3ec, #e0f7ff);
+    color: #333;
+}
+
+.header {
+    background: linear-gradient(90deg, #ff4d8d, #7c3aed);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: move 10s linear infinite;
+}
+
+@keyframes move {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.card {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 25px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card img {
+    width: 260px;
+    border-radius: 15px;
+}
+
+/* BOTONES */
+.boton {
+    background: linear-gradient(90deg, #ff4d8d, #7c3aed);
+    border: none;
+    color: white;
+    padding: 12px 18px;
+    margin: 6px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton:hover {
+    transform: scale(1.05);
+}
+
+/* SECCIONES */
+.seccion {
+    display: none;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* QUIENES */
+.compromiso {
+    text-align: center;
+}
+
+.subtitulo {
+    color: #7c3aed;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.frase-box {
+    background: #f3e8ff;
+    padding: 15px;
+    border-radius: 12px;
+    font-style: italic;
+    margin: 20px 0;
+}
+
+.grid-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.card-info {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: left;
+}
+
+/* GALERIA */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.galeria img {
+    width: 100%;
+    border-radius: 14px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.galeria img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* CARRUSEL */
+.carrusel {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+}
+
+.carrusel img {
+    width: 100%;
+    border-radius: 14px;
+}
+
+.flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.izq { left: -15px; }
+.der { right: -15px; }
+
+/* BLOG */
+iframe, video {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 15px;
+}
+
+/* CONTACTO */
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: none;
+    background: #eee;
+}
+
+textarea {
+    height: 120px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<div class="marquee">
+<span>Bienvenidos a mi Portafolio JavaScript ✨</span>
+</div>
+</div>
+
+<div class="card">
+<h2>Mi Portafolio JavaScript</h2>
+<p>Proyecto sobre la erradicación de la pobreza en México</p>
+
+<img src="https://www.gob.mx/cms/uploads/article/main_image/114173/pobreza_blog.jpeg">
+
+<p><strong>Nombre:</strong> Emily Calderilla Alcántara</p>
+<p><strong>Campus:</strong> UVM Lomas Verdes</p>
+<p><strong>Docente:</strong> Patricia Hernandez Carrillo</p>
+
+<div>
+<button class="boton" onclick="mostrar('quienes')">Quiénes somos</button>
+<button class="boton" onclick="mostrar('blog')">Blog</button>
+<button class="boton" onclick="mostrar('galeria')">Galería</button>
+<button class="boton" onclick="mostrar('carrusel')">Carrusel</button>
+<button class="boton" onclick="mostrar('contacto')">Contáctanos</button>
+</div>
+</div>
+
+<!-- QUIENES (ORIGINAL) -->
+<div id="quienes" class="seccion compromiso">
+<h2>Nuestro compromiso</h2>
+<p class="subtitulo">Conciencia • Educación • Acción</p>
+
+<p>
+Somos un equipo de estudiantes comprometidos con generar conciencia sobre la erradicación de la pobreza. A través de esta página web, buscamos informar, sensibilizar y motivar a las personas a reflexionar sobre esta problemática social que afecta a millones de personas en el mundo.
+</p>
+
+<p>
+Nuestro proyecto integra el uso de herramientas digitales y conocimientos de programación para crear un espacio accesible donde se compartan datos, ideas y posibles soluciones orientadas al cambio social.
+</p>
+
+<div class="frase-box">
+“Creemos que la educación, la empatía y la acción colectiva son fundamentales para construir una sociedad más justa e igualitaria.”
+</div>
+
+<div class="grid-info">
+<div class="card-info"><strong>🌎 Propósito</strong><p>Informar y generar conciencia sobre la pobreza en México.</p></div>
+<div class="card-info"><strong>💡 Enfoque</strong><p>Uso de tecnología y conocimiento para el cambio social.</p></div>
+<div class="card-info"><strong>📚 Valores</strong><p>Educación, empatía y responsabilidad social.</p></div>
+<div class="card-info"><strong>🚀 Meta</strong><p>Inspirar acciones que contribuyan a una sociedad más equitativa.</p></div>
+</div>
+</div>
+
+<!-- BLOG -->
+<div id="blog" class="seccion">
+<h3>Blog</h3>
+
+<p>Presentación del proyecto:</p>
+
+<a href="./presentacion.pdf" target="_blank" class="boton">
+Abrir presentación en nueva pestaña
+</a>
+
+<p style="font-size:14px; color:gray;">
+(Si no se ve abajo, ábrela con el botón)
+</p>
+
+<iframe src="./presentacion.pdf" width="100%" height="500px"></iframe>
+
+<hr>
+
+<p>Video del proyecto:</p>
+
+<video controls width="100%">
+    <source src="./video.mp4" type="video/mp4">
+    Tu navegador no puede reproducir este video.
+</video>
+
+<a href="./video.mp4" target="_blank" class="boton">
+Abrir video en nueva pestaña
+</a>
+
+</div>
+
+<!-- GALERIA -->
+<div id="galeria" class="seccion">
+<h3>Galería</h3>
+<div class="galeria">
+<img src="https://i0.wp.com/batalloso.com/wp-content/uploads/2025/10/image-1.png?resize=767%2C512&ssl=1">
+<img src="https://lh6.googleusercontent.com/Q1ZmIBmpZC35KY02HR3K78laDDQiHHqwqkOpw3K2s6HY0R4w2kIax9nxrzDojqpN7J-B6gMBk0XmlwuAH4CuhT-gQHqivUsiLOhGjuuske4cvNkiMIiNtCFGvNEtyPbgYrZlcqiPV1SFXqFgdg">
+<img src="https://spanish.people.com.cn/NMediaFile/2014/1017/FOREIGN201410171705000021123780252.jpg">
+<img src="https://www.meganoticias.mx/uploads/noticias/dia-internacional-para-la-erradicacion-de-la-pobreza-368254.jpg">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtxIBYFulxbaRyEDhvo57rK98Bhy06P44OxA&s">
+<img src="https://zetatijuana.com/wp-content/uploads/2025/10/pobreza-olvera.jpg">
+</div>
+</div>
+
+<!-- CARRUSEL -->
+<div id="carrusel" class="seccion">
+<h3>Carrusel</h3>
+<div class="carrusel">
+<button class="flecha izq" onclick="cambiar(-1)">❮</button>
+<img id="imgCarrusel" src="https://www.colegioceumonteprincipe.es/wp-content/uploads/dia-mundial-erradicacion-pobreza-768x509-768x500.jpg">
+<button class="flecha der" onclick="cambiar(1)">❯</button>
+</div>
+</div>
+
+<!-- CONTACTO -->
+<div id="contacto" class="seccion">
+<h3>Contáctanos</h3>
+<div class="formulario">
+<input type="text" placeholder="Nombre">
+<input type="email" placeholder="Email">
+<input type="tel" placeholder="Número">
+<textarea placeholder="Mensaje"></textarea>
+<button class="boton">Enviar</button>
+</div>
+</div>
+
+<footer>
+Proyecto escolar JavaScript
+</footer>
+
+<script>
+function mostrar(id) {
+let secciones = ['quienes','blog','galeria','carrusel','contacto'];
+secciones.forEach(sec => document.getElementById(sec).style.display='none');
+document.getElementById(id).style.display='block';
+}
+
+let imagenes = [
+"https://www.colegioceumonteprincipe.es/wp-content/uploads/dia-mundial-erradicacion-pobreza-768x509-768x500.jpg",
+"https://www.cepal.org/sites/default/files/article/images/foto_pobreza_675.jpg",
+"carrusel1.jpeg",
+"carrusel2.jpg",
+"carrusel3.png"
+];
+
+let index = 0;
+
+function cambiar(dir) {
+index += dir;
+if(index < 0) index = imagenes.length - 1;
+if(index >= imagenes.length) index = 0;
+document.getElementById("imgCarrusel").src = imagenes[index];
+}
+
+setInterval(() => cambiar(1), 3000);
+</script>
+
+</body>
+</html>
